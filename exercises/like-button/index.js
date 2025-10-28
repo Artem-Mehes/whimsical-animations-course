@@ -3,11 +3,6 @@ import { random, range } from 'lodash';
 export function init() {
   const btn = document.querySelector('.particleButton');
 
-  if (!btn) {
-    console.error('Button not found!');
-    return;
-  }
-
   // Our "source of truth" for the animation's fade duration.
   // This ensures that the cleanup timeout will never fire
   // before the animation has completed.

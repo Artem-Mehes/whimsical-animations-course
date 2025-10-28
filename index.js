@@ -37,7 +37,6 @@ function renderSidebar() {
     
     link.innerHTML = `
       <div class="link-title">${exercise.title}</div>
-      <div class="link-description">${exercise.description}</div>
     `;
     
     link.addEventListener('click', (e) => {
@@ -75,14 +74,13 @@ async function loadExercise(exerciseId) {
   
   // Update header
   document.getElementById('exerciseTitle').textContent = exercise.title;
-  document.getElementById('exerciseDescription').textContent = exercise.description;
   
   // Load exercise content
   const container = document.getElementById('exerciseContainer');
   
   try {
     // Load HTML
-    const htmlResponse = await fetch(`./exercises/${exercise.folder}/${exercise.id}.html`);
+    const htmlResponse = await fetch(`./exercises/${exercise.folder}/index.html`);
     const html = await htmlResponse.text();
     container.innerHTML = html;
     
@@ -95,13 +93,11 @@ async function loadExercise(exerciseId) {
     const link = document.createElement('link');
     link.id = 'exercise-styles';
     link.rel = 'stylesheet';
-    link.href = `./exercises/${exercise.folder}/${exercise.id}.css`;
+    link.href = `./exercises/${exercise.folder}/index.css`;
     document.head.appendChild(link);
     
     // Load and execute JS
-    console.log(`Loading JS module: ./exercises/${exercise.folder}/${exercise.id}.js`);
-    const jsModule = await import(`./exercises/${exercise.folder}/${exercise.id}.js`);
-    console.log('JS Module loaded:', jsModule);
+    const jsModule = await import(`./exercises/${exercise.folder}/index.js`);
     
     // Initialize after a short delay to ensure DOM and CSS are ready
     const initModule = () => {
