@@ -1,0 +1,62 @@
+html {
+  --red: oklch(0.65 0.3 19.41);
+}
+
+.particleButton {
+  position: relative;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background: hsl(0deg 0% 100% / 0.1);
+
+    path {
+      stroke: var(--red);
+    }
+  }
+
+  &.liked path {
+    fill: var(--red);
+    stroke: var(--red);
+  }
+}
+
+.particleButton svg {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  animation: fadeOut forwards;
+  pointer-events: none;
+}
+
