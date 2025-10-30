@@ -1,199 +1,205 @@
 :root {
-  --bg-dark: hsl(210deg 15% 6%);
-  --bg-sidebar: hsl(210deg 15% 10%);
-  --bg-hover: hsl(210deg 15% 15%);
-  --text-primary: hsl(0deg 0% 95%);
-  --text-secondary: hsl(0deg 0% 70%);
-  --accent: hsl(270deg 70% 65%);
-  --accent-hover: hsl(270deg 70% 75%);
-  --border: hsl(210deg 15% 20%);
+	--bg-dark: hsl(210deg 15% 6%);
+	--bg-sidebar: hsl(210deg 15% 10%);
+	--bg-hover: hsl(210deg 15% 15%);
+	--text-primary: hsl(0deg 0% 95%);
+	--text-secondary: hsl(0deg 0% 70%);
+	--accent: hsl(270deg 70% 65%);
+	--accent-hover: hsl(270deg 70% 75%);
+	--border: hsl(210deg 15% 20%);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
-  line-height: 1.6;
-  overflow: hidden;
+	font-family:
+		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+		Cantarell, sans-serif;
+	background: var(--bg-dark);
+	color: var(--text-primary);
+	line-height: 1.6;
+	overflow: hidden;
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  height: 100vh;
+	display: grid;
+	grid-template-columns: 320px 1fr;
+	height: 100vh;
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-  background: var(--bg-sidebar);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+	background: var(--bg-sidebar);
+	border-right: 1px solid var(--border);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 .sidebar-header {
-  padding: 2rem 1.5rem;
-  border-bottom: 1px solid var(--border);
+	padding: 2rem 1.5rem;
+	border-bottom: 1px solid var(--border);
 }
 
 .sidebar-header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+	background: linear-gradient(
+		135deg,
+		var(--accent) 0%,
+		var(--accent-hover) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
 .subtitle {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+	font-size: 0.875rem;
+	color: var(--text-secondary);
 }
 
 .sidebar-nav {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem 0;
+	flex: 1;
+	overflow-y: auto;
+	padding: 1rem 0;
 }
 
 .sidebar-link {
-  display: block;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: var(--text-primary);
-  border-left: 3px solid transparent;
-  transition: all 0.2s ease;
+	display: block;
+	padding: 1rem 1.5rem;
+	text-decoration: none;
+	color: var(--text-primary);
+	border-left: 3px solid transparent;
+	transition: all 0.2s ease;
 }
 
 .sidebar-link:hover {
-  background: var(--bg-hover);
-  border-left-color: var(--accent);
+	background: var(--bg-hover);
+	border-left-color: var(--accent);
 }
 
 .sidebar-link.active {
-  background: var(--bg-hover);
-  border-left-color: var(--accent);
+	background: var(--bg-hover);
+	border-left-color: var(--accent);
 }
 
 .sidebar-link .link-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
+	font-weight: 600;
+	font-size: 0.95rem;
+	margin-bottom: 0.25rem;
 }
 
 .sidebar-link .link-description {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+	font-size: 0.8rem;
+	color: var(--text-secondary);
 }
 
 /* ===== MAIN CONTENT ===== */
 .content {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 .content-header {
-  padding: 2rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-sidebar);
+	padding: 2rem;
+	border-bottom: 1px solid var(--border);
+	background: var(--bg-sidebar);
 }
 
 .content-header h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
 }
 
 .content-header p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+	color: var(--text-secondary);
+	font-size: 0.95rem;
 }
 
 .exercise-container {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+	flex: 1;
+	overflow-y: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
 }
 
 /* ===== WELCOME & ERROR MESSAGES ===== */
 .welcome-message,
 .error-message {
-  text-align: center;
-  max-width: 500px;
+	text-align: center;
+	max-width: 500px;
 }
 
 .welcome-message h3,
 .error-message h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+	font-size: 2rem;
+	margin-bottom: 1rem;
 }
 
 .welcome-message p,
 .error-message p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+	font-size: 1.1rem;
+	color: var(--text-secondary);
 }
 
 .error-message {
-  color: hsl(0deg 70% 60%);
+	color: hsl(0deg 70% 60%);
 }
 
 /* ===== SCROLLBAR STYLING ===== */
 .sidebar-nav::-webkit-scrollbar,
 .exercise-container::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 .sidebar-nav::-webkit-scrollbar-track,
 .exercise-container::-webkit-scrollbar-track {
-  background: transparent;
+	background: transparent;
 }
 
 .sidebar-nav::-webkit-scrollbar-thumb,
 .exercise-container::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
+	background: var(--border);
+	border-radius: 4px;
 }
 
 .sidebar-nav::-webkit-scrollbar-thumb:hover,
 .exercise-container::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-hover);
+	background: var(--bg-hover);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .app {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-  }
-  
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    max-height: 40vh;
-  }
-  
-  .sidebar-header h1 {
-    font-size: 1.25rem;
-  }
-  
-  .sidebar-header {
-    padding: 1.5rem;
-  }
-  
-  .content-header {
-    padding: 1.5rem;
-  }
+	.app {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
+	}
+
+	.sidebar {
+		border-right: none;
+		border-bottom: 1px solid var(--border);
+		max-height: 40vh;
+	}
+
+	.sidebar-header h1 {
+		font-size: 1.25rem;
+	}
+
+	.sidebar-header {
+		padding: 1.5rem;
+	}
+
+	.content-header {
+		padding: 1.5rem;
+	}
 }

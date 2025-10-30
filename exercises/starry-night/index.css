@@ -1,56 +1,55 @@
 html {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    hsl(240deg 20% 10%),
-    hsl(240deg 40% 2%)
-  );
-  height: 100svh;
-  height: 100vh;
-  border: 2px solid hsl(240deg 20% 20%);
-  border-radius: 5px;
+	background: linear-gradient(
+		to bottom,
+		hsl(240deg 20% 10%),
+		hsl(240deg 40% 2%)
+	);
+	height: 100vh;
+	border: 2px solid hsl(240deg 20% 20%);
+	border-radius: 5px;
 }
 
 .starry-night-particle-button {
-  /* Ensure that the button sits in front of the particles: */
-  z-index: 2;
-  padding: 1rem 3rem;
-  border: none;
-  border-bottom: 3px solid hsl(240deg 90% 36%);
-  border-radius: 6px;
-  background: hsl(240deg 90% 48%);
-  font-weight: 900;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: auto;
+	/* Ensure that the button sits in front of the particles: */
+	z-index: 2;
+	padding: 1rem 3rem;
+	border: none;
+	border-bottom: 3px solid hsl(240deg 90% 36%);
+	border-radius: 6px;
+	background: hsl(240deg 90% 48%);
+	font-weight: 900;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-top: auto;
 
-  &:active {
-    border-bottom-width: 1px;
-  }
+	&:active {
+		border-bottom-width: 1px;
+	}
 }
 
 .starry-night-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .starry-night-star {
-  position: absolute;
-  animation: fadeIn 1000ms;
+	position: absolute;
+	animation: fadeIn 1000ms;
 }
