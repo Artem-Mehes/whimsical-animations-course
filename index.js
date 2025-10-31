@@ -98,42 +98,49 @@ async function loadExercise(exerciseId) {
 		link.href = `./exercises/${exercise.folder}/index.css`;
 		document.head.appendChild(link);
 
-		// Load and execute JS
-		const jsModule = await import(`./exercises/${exercise.folder}/index.js`);
+		// Load and execute JS (optional - exercises can work without JS)
+		try {
+			const jsModule = await import(`./exercises/${exercise.folder}/index.js`);
 
-		// Initialize after a short delay to ensure DOM and CSS are ready
-		const initModule = () => {
-			console.log("Calling init()");
-			if (jsModule.init) {
-				jsModule.init();
-			} else {
-				console.error("No init function found in module");
+			// Initialize after a short delay to ensure DOM and CSS are ready
+			const initModule = () => {
+				console.log("Calling init()");
+				if (jsModule.init) {
+					jsModule.init();
+				} else {
+					console.error("No init function found in module");
+				}
+			};
+
+			// Try both: onload callback and setTimeout as fallback
+			let initialized = false;
+
+			link.onload = () => {
+				if (!initialized) {
+					console.log("CSS loaded via onload event");
+					initialized = true;
+					initModule();
+				}
+			};
+
+			// Fallback: if CSS doesn't fire onload (e.g., cached), initialize after a short delay
+			setTimeout(() => {
+				if (!initialized) {
+					console.log("CSS loaded via timeout fallback");
+					initialized = true;
+					initModule();
+				}
+			}, 100);
+
+			// Store cleanup function if provided
+			if (jsModule.cleanup) {
+				cleanupFunction = jsModule.cleanup;
 			}
-		};
-
-		// Try both: onload callback and setTimeout as fallback
-		let initialized = false;
-
-		link.onload = () => {
-			if (!initialized) {
-				console.log("CSS loaded via onload event");
-				initialized = true;
-				initModule();
-			}
-		};
-
-		// Fallback: if CSS doesn't fire onload (e.g., cached), initialize after a short delay
-		setTimeout(() => {
-			if (!initialized) {
-				console.log("CSS loaded via timeout fallback");
-				initialized = true;
-				initModule();
-			}
-		}, 100);
-
-		// Store cleanup function if provided
-		if (jsModule.cleanup) {
-			cleanupFunction = jsModule.cleanup;
+		} catch {
+			// JS file is optional - exercise can still work with just HTML/CSS
+			console.log(
+				`No JavaScript file found for exercise ${exerciseId}, continuing without JS`,
+			);
 		}
 
 		currentExercise = exercise;

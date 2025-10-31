@@ -1,0 +1,39 @@
+body {
+	padding: 16px;
+	background: hsl(210deg 15% 6%);
+	color-scheme: dark;
+}
+.wrapper {
+	position: relative;
+	height: 250px;
+	border: 2px solid white;
+	width: 100%;
+}
+.star {
+	display: grid;
+	place-content: center;
+	border: 2px solid oklch(0.87 0.2 90 / 1);
+	user-select: none;
+	pointer-events: none;
+	width: 32px;
+	height: 32px;
+}
+
+.star {
+	display: grid;
+	place-content: center;
+	border: 2px solid oklch(0.87 0.2 90 / 1);
+	user-select: none;
+	pointer-events: none;
+	width: 32px;
+	height: 32px;
+
+	/* Tweak these values to see the containment: */
+	--top: 100%;
+	--left: 100%;
+
+	position: absolute;
+	top: var(--top);
+	left: var(--left);
+	transform: translate(calc(var(--left) * -1), calc(var(--top) * -1));
+}

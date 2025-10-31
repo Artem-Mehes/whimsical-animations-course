@@ -17,4 +17,9 @@ export const exercises = [
 		title: "Shimmer Particle",
 		folder: "shimmer-particle",
 	},
+	{
+		id: "containment-strategies",
+		title: "Containment Strategies",
+		folder: "containment-strategies",
+	},
 ];

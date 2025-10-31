@@ -58,4 +58,6 @@ html {
 	background: white;
 	animation: fadeOut forwards;
 	pointer-events: none;
+
+	transform: translate(-50%, -50%);
 }
