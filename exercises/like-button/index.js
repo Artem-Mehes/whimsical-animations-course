@@ -1,14 +1,26 @@
 import { random, range } from "lodash";
 
+let clickHandler = null;
+
 export function init() {
 	const btn = document.querySelector(".particleButton");
+
+	if (!btn) {
+		console.error("Button element not found");
+		return;
+	}
+
+	// Remove existing event listener if it exists (from previous init calls)
+	if (clickHandler) {
+		btn.removeEventListener("click", clickHandler);
+	}
 
 	// Our "source of truth" for the animation's fade duration.
 	// This ensures that the cleanup timeout will never fire
 	// before the animation has completed.
 	const FADE_DURATION = 1000;
 
-	btn.addEventListener("click", () => {
+	clickHandler = () => {
 		btn.classList.toggle("liked");
 
 		if (!btn.classList.contains("liked")) {
@@ -45,5 +57,15 @@ export function init() {
 			// We add 200ms to really be 100% sure that the cleanup
 			// function won't interrupt the fade-out animation:
 		}, FADE_DURATION + 200);
-	});
+	};
+
+	btn.addEventListener("click", clickHandler);
+}
+
+export function cleanup() {
+	const btn = document.querySelector(".particleButton");
+	if (clickHandler && btn) {
+		btn.removeEventListener("click", clickHandler);
+		clickHandler = null;
+	}
 }

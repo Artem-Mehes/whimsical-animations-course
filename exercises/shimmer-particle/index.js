@@ -1,5 +1,21 @@
+let mouseenterHandler = null;
+let focusHandler = null;
+
 export function init() {
 	const btn = document.querySelector(".buyButton");
+
+	if (!btn) {
+		console.error("Button element not found");
+		return;
+	}
+
+	// Remove existing event listeners if they exist (from previous init calls)
+	if (mouseenterHandler) {
+		btn.removeEventListener("mouseenter", mouseenterHandler);
+	}
+	if (focusHandler) {
+		btn.removeEventListener("focus", focusHandler);
+	}
 
 	const ANIMATION_DURATION = 1000;
 
@@ -16,6 +32,23 @@ export function init() {
 		}, ANIMATION_DURATION + 200);
 	}
 
-	btn.addEventListener("mouseenter", generateShimmer);
-	btn.addEventListener("focus", generateShimmer);
+	mouseenterHandler = generateShimmer;
+	focusHandler = generateShimmer;
+
+	btn.addEventListener("mouseenter", mouseenterHandler);
+	btn.addEventListener("focus", focusHandler);
+}
+
+export function cleanup() {
+	const btn = document.querySelector(".buyButton");
+	if (btn) {
+		if (mouseenterHandler) {
+			btn.removeEventListener("mouseenter", mouseenterHandler);
+		}
+		if (focusHandler) {
+			btn.removeEventListener("focus", focusHandler);
+		}
+	}
+	mouseenterHandler = null;
+	focusHandler = null;
 }

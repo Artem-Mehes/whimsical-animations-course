@@ -1,7 +1,5 @@
 import { exercises } from "./exercises/exercises-config.js";
 
-// State management
-let currentExercise = null;
 let cleanupFunction = null;
 
 // Initialize the app
@@ -142,8 +140,6 @@ async function loadExercise(exerciseId) {
 				`No JavaScript file found for exercise ${exerciseId}, continuing without JS`,
 			);
 		}
-
-		currentExercise = exercise;
 	} catch (error) {
 		console.error(`Error loading exercise ${exerciseId}:`, error);
 		container.innerHTML = `
