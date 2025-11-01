@@ -19,6 +19,7 @@ export function init() {
 	// This ensures that the cleanup timeout will never fire
 	// before the animation has completed.
 	const FADE_DURATION = 1000;
+	const MAGNITUDE = 48;
 
 	clickHandler = () => {
 		btn.classList.toggle("liked");
@@ -34,12 +35,11 @@ export function init() {
 			const particle = document.createElement("span");
 			particle.classList.add("particle");
 
-			particle.style.top = random(0, 100) + "%";
-			particle.style.left = random(0, 100) + "%";
+			const x = random(-MAGNITUDE, MAGNITUDE);
+			const y = random(-MAGNITUDE, MAGNITUDE);
+			particle.style.transform = `translate(${x}px, ${y}px)`;
 
-			// Set the fade duration through an inline style,
-			// so that we can use our "source of truth":
-			particle.style.animationDuration = FADE_DURATION + "ms";
+			particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 
 			btn.appendChild(particle);
 

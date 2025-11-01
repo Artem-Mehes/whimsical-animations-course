@@ -41,23 +41,22 @@ html {
 	white-space: nowrap;
 }
 
-@keyframes fadeOut {
+@keyframes fromCenter {
 	from {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
+		transform: translate(0px, 0px);
 	}
 }
 
 .particle {
 	position: absolute;
+	inset: 0;
+	margin: auto;
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
 	background: white;
-	animation: fadeOut forwards;
 	pointer-events: none;
-
-	transform: translate(-50%, -50%);
+	animation:
+		fadeToTransparent var(--fade-duration) forwards,
+		fromCenter 500ms;
 }
