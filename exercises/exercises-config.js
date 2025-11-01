@@ -22,4 +22,9 @@ export const exercises = [
 		title: "Containment Strategies",
 		folder: "containment-strategies",
 	},
+	{
+		id: "falling-emoji",
+		title: "Falling Emoji",
+		folder: "falling-emoji",
+	},
 ];
