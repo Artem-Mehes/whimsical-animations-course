@@ -27,4 +27,9 @@ export const exercises = [
 		title: "Falling Emoji",
 		folder: "falling-emoji",
 	},
+	{
+		title: "Rotate Amount",
+		folder: "rotate-amount",
+		id: "rotate-amount",
+	},
 ];

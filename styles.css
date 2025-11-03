@@ -7,6 +7,8 @@
 	--accent: hsl(270deg 70% 65%);
 	--accent-hover: hsl(270deg 70% 75%);
 	--border: hsl(210deg 15% 20%);
+
+	--particle-curve: cubic-bezier(0.2, 0.56, 0, 1);
 }
 
 * {

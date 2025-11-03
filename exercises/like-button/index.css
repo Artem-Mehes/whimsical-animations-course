@@ -41,9 +41,9 @@ html {
 	white-space: nowrap;
 }
 
-@keyframes fromCenter {
-	from {
-		transform: translate(0px, 0px);
+@keyframes disperse {
+	to {
+		transform: translate(var(--x), var(--y));
 	}
 }
 
@@ -58,5 +58,5 @@ html {
 	pointer-events: none;
 	animation:
 		fadeToTransparent var(--fade-duration) forwards,
-		fromCenter 500ms;
+		disperse 500ms forwards var(--particle-curve);
 }

@@ -37,8 +37,9 @@ export function init() {
 
 			const x = random(-MAGNITUDE, MAGNITUDE);
 			const y = random(-MAGNITUDE, MAGNITUDE);
-			particle.style.transform = `translate(${x}px, ${y}px)`;
 
+			particle.style.setProperty("--x", `${x}px`);
+			particle.style.setProperty("--y", `${y}px`);
 			particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 
 			btn.appendChild(particle);
