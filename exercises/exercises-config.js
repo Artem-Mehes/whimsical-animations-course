@@ -32,4 +32,9 @@ export const exercises = [
 		folder: "rotate-amount",
 		id: "rotate-amount",
 	},
+	{
+		title: "Bouncing Balls",
+		folder: "bouncing-balls",
+		id: "bouncing-balls",
+	},
 ];

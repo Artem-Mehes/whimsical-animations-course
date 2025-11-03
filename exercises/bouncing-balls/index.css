@@ -1,0 +1,25 @@
+.wrapper {
+	position: relative;
+	display: flex;
+	gap: 16px;
+	padding-inline: 16px;
+	border-bottom: 5px solid white;
+	border-radius: 5px;
+}
+.ball {
+	width: 50px;
+	height: 50px;
+	border-radius: 45%;
+	background: hsl(45deg 100% 50%);
+}
+
+@keyframes bounce {
+	to {
+		transform: translateY(calc(var(--height) * -1));
+	}
+}
+
+.ball {
+	animation: bounce var(--duration) infinite alternate
+		cubic-bezier(0.15, 0.68, 0.65, 1);
+}
