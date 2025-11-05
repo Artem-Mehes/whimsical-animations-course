@@ -19,7 +19,6 @@ export function init() {
 	// This ensures that the cleanup timeout will never fire
 	// before the animation has completed.
 	const FADE_DURATION = 1000;
-	const MAGNITUDE = 48;
 
 	clickHandler = () => {
 		btn.classList.toggle("liked");
@@ -35,11 +34,17 @@ export function init() {
 			const particle = document.createElement("span");
 			particle.classList.add("particle");
 
-			const x = random(-MAGNITUDE, MAGNITUDE);
-			const y = random(-MAGNITUDE, MAGNITUDE);
+			const angle = random(0, 360);
+			const distance = random(32, 64);
 
-			particle.style.setProperty("--x", `${x}px`);
-			particle.style.setProperty("--y", `${y}px`);
+			// Convert polar to cartesian here, using the
+			// provided utility functions
+			const [x, y] = convertPolarToCartesian(angle, distance);
+
+			// Everything else stays the same
+			particle.style.setProperty("--x", x + "px");
+			particle.style.setProperty("--y", y + "px");
+
 			particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 
 			btn.appendChild(particle);
@@ -61,6 +66,17 @@ export function init() {
 	};
 
 	btn.addEventListener("click", clickHandler);
+
+	const convertPolarToCartesian = (angle, distance) => {
+		const angleInRadians = convertDegreesToRadians(angle);
+
+		const x = Math.cos(angleInRadians) * distance;
+		const y = Math.sin(angleInRadians) * distance;
+
+		return [x, y];
+	};
+
+	const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
 }
 
 export function cleanup() {
