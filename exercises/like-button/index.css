@@ -41,11 +41,6 @@ html {
 	white-space: nowrap;
 }
 
-@keyframes disperse {
-	to {
-		transform: translate(var(--x), var(--y));
-	}
-}
 
 .particle {
 	position: absolute;

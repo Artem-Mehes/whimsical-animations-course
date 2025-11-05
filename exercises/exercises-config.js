@@ -37,4 +37,9 @@ export const exercises = [
 		folder: "bouncing-balls",
 		id: "bouncing-balls",
 	},
+	{
+		title: "Magic Wand",
+		folder: "magic-wand",
+		id: "magic-wand",
+	},
 ];

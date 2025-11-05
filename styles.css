@@ -229,3 +229,9 @@ body {
 		opacity: 0;
 	}
 }
+
+@keyframes disperse {
+	to {
+		transform: translate(var(--x), var(--y));
+	}
+}
