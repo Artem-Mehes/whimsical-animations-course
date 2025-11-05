@@ -1,0 +1,39 @@
+.rocket {
+	width: 125px;
+	max-width: 100%;
+	aspect-ratio: 500 / 503;
+}
+
+.particle {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.rocketWrapper {
+	position: relative;
+}
+
+@keyframes oscillate {
+	from {
+		transform: translateY(-5%);
+	}
+	to {
+		transform: translateY(5%);
+	}
+}
+
+.rocket {
+	animation: oscillate 1500ms ease-in-out infinite alternate;
+}
+
+.particle {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin-inline: auto;
+	animation:
+		disperse forwards 750ms,
+		fadeToTransparent var(--fade-duration) var(--fade-delay) forwards;
+}

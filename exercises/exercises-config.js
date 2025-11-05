@@ -1,45 +1,23 @@
 // Configuration for all exercises
 // Add new exercises here to make them appear in the sidebar
 
-export const exercises = [
-	{
-		id: "like-button",
-		title: "Like Button with Particles",
-		folder: "like-button",
-	},
-	{
-		id: "starry-night",
-		title: "Starry Night",
-		folder: "starry-night",
-	},
-	{
-		id: "shimmer-particle",
-		title: "Shimmer Particle",
-		folder: "shimmer-particle",
-	},
-	{
-		id: "containment-strategies",
-		title: "Containment Strategies",
-		folder: "containment-strategies",
-	},
-	{
-		id: "falling-emoji",
-		title: "Falling Emoji",
-		folder: "falling-emoji",
-	},
-	{
-		title: "Rotate Amount",
-		folder: "rotate-amount",
-		id: "rotate-amount",
-	},
-	{
-		title: "Bouncing Balls",
-		folder: "bouncing-balls",
-		id: "bouncing-balls",
-	},
-	{
-		title: "Magic Wand",
-		folder: "magic-wand",
-		id: "magic-wand",
-	},
+const exercisesList = [
+	"like-button",
+	"starry-night",
+	"shimmer-particle",
+	"containment-strategies",
+	"falling-emoji",
+	"rotate-amount",
+	"bouncing-balls",
+	"magic-wand",
+	"rocketship",
 ];
+
+function titleCase(str) {
+	return str.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+export const exercises = exercisesList.map((exercise) => ({
+	title: titleCase(exercise),
+	id: exercise,
+}));

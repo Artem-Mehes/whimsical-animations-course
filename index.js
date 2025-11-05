@@ -78,9 +78,7 @@ async function loadExercise(exerciseId) {
 
 	try {
 		// Load HTML
-		const htmlResponse = await fetch(
-			`./exercises/${exercise.folder}/index.html`,
-		);
+		const htmlResponse = await fetch(`./exercises/${exercise.id}/index.html`);
 		const html = await htmlResponse.text();
 		container.innerHTML = html;
 
@@ -93,12 +91,12 @@ async function loadExercise(exerciseId) {
 		const link = document.createElement("link");
 		link.id = "exercise-styles";
 		link.rel = "stylesheet";
-		link.href = `./exercises/${exercise.folder}/index.css`;
+		link.href = `./exercises/${exercise.id}/index.css`;
 		document.head.appendChild(link);
 
 		// Load and execute JS (optional - exercises can work without JS)
 		try {
-			const jsModule = await import(`./exercises/${exercise.folder}/index.js`);
+			const jsModule = await import(`./exercises/${exercise.id}/index.js`);
 
 			// Initialize after a short delay to ensure DOM and CSS are ready
 			const initModule = () => {
