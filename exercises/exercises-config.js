@@ -11,6 +11,7 @@ const exercisesList = [
 	"bouncing-balls",
 	"magic-wand",
 	"rocketship",
+	"mouse-position",
 ];
 
 function titleCase(str) {

@@ -1,4 +1,5 @@
-import { random, range, sample } from "lodash";
+import { random, sample } from "lodash";
+import { convertPolarToCartesian } from "../../utils";
 
 export function init() {
 	const FADE_DURATION = 500;
@@ -38,14 +39,4 @@ export function init() {
 			FADE_DURATION + FADE_DELAY + 200,
 		);
 	}, 100);
-
-	const convertPolarToCartesian = (angle, distance) => {
-		const angleInRadians = convertDegreesToRadians(angle);
-		const x = Math.cos(angleInRadians) * distance;
-		const y = Math.sin(angleInRadians) * distance;
-
-		return [x, y];
-	};
-
-	const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
 }

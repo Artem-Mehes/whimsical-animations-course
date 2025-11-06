@@ -1,4 +1,5 @@
 import { random, range } from "lodash";
+import { convertPolarToCartesian } from "../../utils";
 
 let clickHandler;
 
@@ -54,16 +55,6 @@ export function init() {
 	};
 
 	window.addEventListener("click", clickHandler);
-
-	const convertPolarToCartesian = (angle, distance) => {
-		const angleInRadians = convertDegreesToRadians(angle);
-		const x = Math.cos(angleInRadians) * distance;
-		const y = Math.sin(angleInRadians) * distance;
-
-		return [x, y];
-	};
-
-	const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
 }
 
 export function cleanup() {

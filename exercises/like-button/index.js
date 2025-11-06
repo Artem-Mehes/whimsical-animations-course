@@ -1,4 +1,5 @@
 import { random, range } from "lodash";
+import { normalize, convertPolarToCartesian } from "../../utils";
 
 let clickHandler = null;
 
@@ -19,6 +20,8 @@ export function init() {
 	// This ensures that the cleanup timeout will never fire
 	// before the animation has completed.
 	const FADE_DURATION = 1000;
+	const JITTER = 20;
+	const NUM_OF_PARTICLES = 10;
 
 	clickHandler = () => {
 		btn.classList.toggle("liked");
@@ -30,11 +33,17 @@ export function init() {
 		// We'll collect all freshly-created particles in this array:
 		const particles = [];
 
-		range(5).forEach(() => {
+		range(NUM_OF_PARTICLES).forEach((index) => {
 			const particle = document.createElement("span");
 			particle.classList.add("particle");
 
-			const angle = random(0, 360);
+			let angle = normalize(
+				index,
+				{ min: 0, max: NUM_OF_PARTICLES },
+				{ min: 0, max: 360 },
+			);
+			angle += random(-JITTER, JITTER);
+
 			const distance = random(32, 64);
 
 			// Convert polar to cartesian here, using the
@@ -66,17 +75,6 @@ export function init() {
 	};
 
 	btn.addEventListener("click", clickHandler);
-
-	const convertPolarToCartesian = (angle, distance) => {
-		const angleInRadians = convertDegreesToRadians(angle);
-
-		const x = Math.cos(angleInRadians) * distance;
-		const y = Math.sin(angleInRadians) * distance;
-
-		return [x, y];
-	};
-
-	const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
 }
 
 export function cleanup() {
