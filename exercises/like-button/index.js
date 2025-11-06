@@ -1,5 +1,5 @@
 import { random, range } from "lodash";
-import { normalize, convertPolarToCartesian } from "../../utils";
+import { convertPolarToCartesian, normalize } from "../../utils";
 
 let clickHandler = null;
 
