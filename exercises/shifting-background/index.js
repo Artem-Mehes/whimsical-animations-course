@@ -9,8 +9,6 @@ export function init() {
 		const x = event.clientX;
 		const y = event.clientY;
 
-		console.log("x", x);
-
 		// TODO: hue should range between 50deg and 200deg, from
 		// left to right, based on “x” position:
 		const hue = normalize(

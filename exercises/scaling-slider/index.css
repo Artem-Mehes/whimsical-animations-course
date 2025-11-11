@@ -1,0 +1,26 @@
+.box {
+	position: absolute;
+	inset: 0;
+	bottom: 80px;
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	background: red;
+}
+label {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 16px;
+	background: hsl(210deg 15% 6%);
+	font-weight: 600;
+}
+#slider {
+	width: 100%;
+	max-width: 300px;
+}

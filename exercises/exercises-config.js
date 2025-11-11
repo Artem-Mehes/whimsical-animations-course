@@ -13,6 +13,7 @@ const exercisesList = [
 	"rocketship",
 	"mouse-position",
 	"shifting-background",
+	"scaling-slider",
 ];
 
 function titleCase(str) {

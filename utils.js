@@ -15,3 +15,19 @@ export const convertPolarToCartesian = (angle, distance) => {
 };
 
 export const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
+
+export const clamp = (value, min = 0, max = 1) => {
+	if (min > max) {
+		[min, max] = [max, min];
+	}
+
+	return Math.max(min, Math.min(max, value));
+};
+
+export const clampedNormalize = (value, currentScale, newScale) => {
+	return clamp(
+		normalize(value, currentScale, newScale),
+		newScale.min,
+		newScale.max,
+	);
+};
