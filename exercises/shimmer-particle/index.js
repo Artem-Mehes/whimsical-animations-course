@@ -20,6 +20,14 @@ export function init() {
 	const ANIMATION_DURATION = 1000;
 
 	function generateShimmer() {
+		const isMotionEnabled = window.matchMedia(
+			"(prefers-reduced-motion: no-preference)",
+		).matches;
+
+		if (!isMotionEnabled) {
+			return;
+		}
+
 		const shimmer = document.createElement("span");
 		shimmer.classList.add("shimmer");
 
