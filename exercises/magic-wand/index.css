@@ -27,8 +27,19 @@ html:active {
 .star {
 	user-select: none;
 	pointer-events: none;
-	animation:
-		move 1000ms forwards cubic-bezier(0.26, 0.95, 0, 1),
-		fadeToTransparent var(--fade-duration) var(--fade-delay) forwards;
 	position: absolute;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.star {
+		animation:
+			move 1000ms forwards cubic-bezier(0.26, 0.95, 0, 1),
+			fadeToTransparent var(--fade-duration) var(--fade-delay) forwards;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.star {
+		animation: fadeToTransparent var(--fade-duration) var(--fade-delay) forwards;
+	}
 }

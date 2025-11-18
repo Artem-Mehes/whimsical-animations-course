@@ -13,6 +13,10 @@ export function init() {
 		const x = event.clientX;
 		const y = event.clientY;
 
+		const isMotionEnabled = window.matchMedia(
+			"(prefers-reduced-motion: no-preference)",
+		).matches;
+
 		const particles = [];
 
 		range(5).forEach(() => {
@@ -24,6 +28,7 @@ export function init() {
 				"https://sandpack-bundler.vercel.app/img/wand-sparkle.svg",
 			);
 			particle.classList.add("star");
+
 			particle.style.top = y + "px";
 			particle.style.left = x + "px";
 
@@ -32,14 +37,21 @@ export function init() {
 
 			const coordinates = convertPolarToCartesian(angle, distance);
 
-			const rotation = random(90, 360);
-
-			particle.style.setProperty("--x", coordinates[0] + "px");
-			particle.style.setProperty("--y", coordinates[1] + "px");
-			particle.style.setProperty("--rotation", rotation + "deg");
-
 			particle.style.setProperty("--fade-duration", fadeDuration + "ms");
 			particle.style.setProperty("--fade-delay", fadeDelay + "ms");
+
+			if (isMotionEnabled) {
+				const rotation = random(90, 360);
+
+				particle.style.setProperty("--x", coordinates[0] + "px");
+				particle.style.setProperty("--y", coordinates[1] + "px");
+				particle.style.setProperty("--rotation", rotation + "deg");
+			} else {
+				particle.style.setProperty(
+					"transform",
+					`translate(${coordinates[0]}px, ${coordinates[1]}px)`,
+				);
+			}
 
 			container.appendChild(particle);
 		});
