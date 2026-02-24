@@ -41,16 +41,81 @@ html {
 	white-space: nowrap;
 }
 
+@keyframes twinkle {
+	from {
+		opacity: var(--twinkle-amount);
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .particle {
 	position: absolute;
 	inset: 0;
 	margin: auto;
-	width: 12px;
-	height: 12px;
+	width: var(--size);
+	height: var(--size);
 	border-radius: 50%;
 	background: white;
 	pointer-events: none;
 	animation:
-		fadeToTransparent var(--fade-duration) forwards,
-		disperse 500ms forwards var(--particle-curve);
+		twinkle var(--twinkle-duration) infinite alternate ease-in-out,
+		fadeToTransparent var(--fade-duration) var(--fade-delay) forwards,
+		disperse var(--disperse-duration) forwards var(--particle-curve);
+}
+
+.popCircle {
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: hsl(270deg 100% 80%);
+	opacity: 0;
+}
+
+@keyframes fromShrunken {
+	from {
+		transform: scale(0);
+	}
+}
+
+@keyframes circleColorShift {
+	from {
+		background: hsl(350deg 100% 60%);
+	}
+}
+
+.particleButton.liked .popCircle {
+	animation:
+		fromShrunken var(--pop-circle-duration),
+		circleColorShift var(--pop-circle-duration),
+		fadeFromOpaque 300ms var(--pop-circle-duration) backwards;
+}
+
+.particleButton.liked svg {
+	animation: fromShrunken 2000ms var(--pop-circle-duration) backwards
+		linear(
+			0,
+			0.04 1.1%,
+			0.156 2.3%,
+			1.015 8.5%,
+			1.157 10.4%,
+			1.217 12.4%,
+			1.217 13.6%,
+			1.193 15%,
+			0.992 21.7%,
+			0.964 23.5%,
+			0.952 25.3%,
+			0.957 27.9%,
+			1.002 34.7%,
+			1.01 38.2%,
+			0.998 51%,
+			1
+		);
+}
+
+@keyframes hueRotate {
+	to {
+		filter: hue-rotate(var(--hue-rotation));
+	}
 }
