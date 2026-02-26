@@ -14,6 +14,7 @@ const exercisesList = [
 	"mouse-position",
 	"shifting-background",
 	"scaling-slider",
+	"face-without-mouth"
 ];
 
 function titleCase(str) {
