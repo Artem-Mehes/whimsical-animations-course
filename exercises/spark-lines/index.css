@@ -1,0 +1,9 @@
+svg {
+	background: hsl(210deg 12% 12%);
+	fill: none;
+	stroke: hotpink;
+	stroke-width: 3px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	overflow: visible;
+}
