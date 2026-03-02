@@ -17,6 +17,7 @@ const exercisesList = [
 	"face-without-mouth",
 	"spark-lines",
 	"shape-circuit",
+	'motion'
 ];
 
 function titleCase(str) {
