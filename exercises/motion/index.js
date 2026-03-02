@@ -4,6 +4,9 @@ import './styles.css';
 const button = document.querySelector('button');
 const path = button.querySelector('path');
 
+// An exaggerated ease curve:
+const BEZIER_VALUES = [0.3, 0.1, 0, 1];
+
 function handleMouseEnter() {
   const prefersReducedMotion = checkPrefersReducedMotion();
 
@@ -18,7 +21,8 @@ function handleMouseEnter() {
       `,
     },
     {
-      duration: prefersReducedMotion ? 0 : 0.3,
+      duration: prefersReducedMotion ? 0 : 0.5,
+      ease: BEZIER_VALUES,
     }
   );
 }
@@ -37,7 +41,8 @@ function handleMouseLeave() {
       `,
     },
     {
-      duration: prefersReducedMotion ? 0 : 0.3,
+      duration: prefersReducedMotion ? 0 : 1.5,
+      ease: BEZIER_VALUES,
     }
   );
 }
