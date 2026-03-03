@@ -18,6 +18,7 @@ const exercisesList = [
   'spark-lines',
   'shape-circuit',
   'motion',
+  'hamburger',
 ];
 
 function titleCase(str) {
