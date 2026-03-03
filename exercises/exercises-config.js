@@ -2,22 +2,22 @@
 // Add new exercises here to make them appear in the sidebar
 
 const exercisesList = [
-	"like-button",
-	"starry-night",
-	"shimmer-particle",
-	"containment-strategies",
-	"falling-emoji",
-	"rotate-amount",
-	"bouncing-balls",
-	"magic-wand",
-	"rocketship",
-	"mouse-position",
-	"shifting-background",
-	"scaling-slider",
-	"face-without-mouth",
-	"spark-lines",
-	"shape-circuit",
-	'motion'
+  'like-button',
+  'starry-night',
+  'shimmer-particle',
+  'containment-strategies',
+  'falling-emoji',
+  'rotate-amount',
+  'bouncing-balls',
+  'magic-wand',
+  'rocketship',
+  'mouse-position',
+  'shifting-background',
+  'scaling-slider',
+  'face',
+  'spark-lines',
+  'shape-circuit',
+  'motion',
 ];
 
 function titleCase(str) {
