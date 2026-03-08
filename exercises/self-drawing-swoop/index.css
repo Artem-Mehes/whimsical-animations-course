@@ -1,0 +1,33 @@
+button {
+	background: transparent;
+	border: none;
+	padding: 8px;
+	cursor: pointer;
+}
+svg {
+	display: block;
+	width: 326px;
+	max-width: 100%;
+	overflow: visible;
+	stroke-width: 12px;
+	stroke-linecap: round;
+}
+.background {
+	stroke: hsl(35deg 20% 30%);
+}
+
+.foreground {
+	stroke: hsl(45deg 100% 50%);
+	stroke-dasharray: 1px, 1000px;
+	stroke-dashoffset: 1px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.foreground {
+		transition: stroke-dashoffset 1000ms;
+	}
+}
+
+button:hover .foreground {
+	stroke-dashoffset: 0px;
+}

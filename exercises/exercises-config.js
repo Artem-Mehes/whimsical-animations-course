@@ -20,6 +20,7 @@ const exercisesList = [
 	"motion",
 	"hamburger",
 	"play-stop",
+	"self-drawing-swoop",
 ];
 
 function titleCase(str) {
