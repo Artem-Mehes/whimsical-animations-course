@@ -40,4 +40,8 @@ svg {
 }
 
 .progressIndicator {
+	stroke-dasharray: 100, 1000;
+	stroke-dashoffset: 100;
+	transform: rotate(-90deg);
+	transform-origin: center;
 }
