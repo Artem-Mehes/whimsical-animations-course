@@ -21,6 +21,7 @@ const exercisesList = [
 	"hamburger",
 	"play-stop",
 	"self-drawing-swoop",
+	"circular-progress-indicator",
 ];
 
 function titleCase(str) {
